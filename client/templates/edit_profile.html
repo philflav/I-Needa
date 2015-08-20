@@ -1,11 +1,13 @@
 <template name="editProfile">
+	{{>home}}
 	<h3>My Profile</h3>	
 
 	{{#each myProfile}}
 
 	<div class="my_container">
-		<p> Use this page to edit your personal profile and/or change you password</p>
-		<p>Information you enter here will be visible to other users</p>
+		<p> Use this page to edit your personal profile.</p>
+		<p>Information you enter here will be visible to other users of this system</p>
+		<br>
 	<form class="right_just">
 	    <p>UserName: 	<input type="text" name="ProfileTitle" value={{ProfileTitle}}></p>
 	    <p>Gender: 	<input type="text" name="gender" value={{gender}}></p>

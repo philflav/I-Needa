@@ -1,12 +1,12 @@
 <template name="home">
 <div class="home_head">
 	{{#if currentUser}} 
-	Logged in as 
-  		{{> user}}
+	You are logged in as {{> user}}
+  {{else}}
+  You are not logged in. Not everything will work.
 	{{/if}}
-	<br>
 </div>
-
+<br>
 <div class="btn-group-vertical" role="group" aria-label="...">
 <button type="button" class="btn btn-default btn-lg">
   <span class="glyphicon glyphicon-search" aria-hidden="true"></span> <a href="/search">Search</a>
