@@ -1,0 +1,8 @@
+<template name="search">
+	<title>Search</title>
+	<h1>Search code goes here</h1>
+	  {{#each profiles}}
+      {{name}}
+        <li><a href="/profile/{{_id}}">{{name}}</a></li>
+      {{/each}}
+</template>

@@ -1,0 +1,44 @@
+<template name="home">
+<div class="home_head">
+	{{#if currentUser}} 
+	Logged in as 
+  		{{> user}}
+	{{/if}}
+	<br>
+</div>
+
+<div class="btn-group-vertical" role="group" aria-label="...">
+<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-search" aria-hidden="true"></span> <a href="/search">Search</a>
+</button>
+<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="/messages">My messages</a>
+</button>
+<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> <a href="/results">Profiles</a>
+</button>
+<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <a href="/editProfile">My Profile</a>
+</button>
+<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> <a href="/subscription">My Subscription</a>
+</button>
+<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> <a href="/favourites">My Favourites</a>
+</button>
+<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> <a href="/likesMe">Who Likes Me?</a>
+</button>
+<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <a href="/lookedAt">Who I've Looked At</a>
+</button>
+<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> <a href="/lookedAtMe">Who's Looked At Me?</a>
+</button>
+{{#if currentUser}}
+<button type="button" class="logout btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> <a href="/home">Log Me Out</a>
+</button>
+{{/if}}
+</div>
+</template>
