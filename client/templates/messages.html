@@ -2,11 +2,12 @@
 	{{>home}}
 	<h3 class="bluehead">My InBox</h3>
 	{{#each to_me}}
-	Message from: {{sender_name}} <br>
-	Sent at: {{createdOn}}<br>
+	Message from: {{sender_name}} <br>	
 	{{content}}<br>
-
-	<form class="right_just">
+	<div class="plain">
+	Sent at: {{createdOn}}<br>
+	</div>
+	<form class="left_just">
 		Reply to: 	<input type="text" name="recipient" value={{sent_from}}>
 		<p>Message:    <textarea cols="50" rows="5" name="content" value={{content}}></textarea></p>
 
