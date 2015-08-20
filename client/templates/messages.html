@@ -1,3 +1,27 @@
 <template name="messages">
-	<h3>Messages template</h3>
+	{{>home}}
+	<h3 class="bluehead">My InBox</h3>
+	{{#each to_me}}
+	Message from: {{sender_name}} <br>
+	Sent at: {{createdOn}}<br>
+	{{content}}<br>
+
+	<form class="right_just">
+		Reply to: 	<input type="text" name="recipient" value={{sent_from}}>
+		<p>Message:    <textarea cols="50" rows="5" name="content" value={{content}}></textarea></p>
+
+		<p><input type="submit" value="Reply" class="btn btn-default btn-lg"></p>
+
+	</form>
+
+	{{/each}}
+	<h3 class="bluehead">My Sent Messages</h3>
+	{{#each from_me}}
+	Message to: {{sent_to}}<br>
+	{{content}}<br>
+	<div class="plain">
+	Sent at: {{createdOn}}<br>
+	</div>
+	{{/each}}
+	<br>
 </template>

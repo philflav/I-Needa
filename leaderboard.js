@@ -1,4 +1,5 @@
 Profiles = new Mongo.Collection("profiles");
+Messages = new Mongo.Collection("messages");
 
 //Routes
 
@@ -39,10 +40,40 @@ if (Meteor.isClient) {
       console.log("This is a the profiles function.");
       return Profiles.find({});
     }
+    }),
+
+   Template.messages.helpers({
+      to_me: function () {
+        console.log("Finding messages to the current user");
+        return Messages.find({sent_to: Meteor.userId()}); //add date order sort
+      },
+    from_me: function () {
+        console.log("Finding messages from the current user");
+        return Messages.find({sent_from: Meteor.userId()}); //add date order sort
+     }
   });
 
-//Events
 
+  //Events
+Template.messages.events({
+  'submit form': function(event){
+    console.log("Reply button pressed");
+    var content = $('[name="content"]').val();
+    var recipient =$('[name="recipient"]').val();
+    var sender = Meteor.userId();
+    var sender_name = Profiles.findOne({_id: sender},{fields:{ProfileTitle:1}});
+    var d = new Date();
+    var n = d.toLocaleString();
+    Messages.insert(
+              {sent_to: recipient,
+              sent_from: sender,
+              sender_name: sender_name,
+              content: content, 
+              createdOn: n
+              });
+    }
+
+})
   
 Template.register.events({
     'submit form': function(event){
@@ -64,6 +95,12 @@ Template.register.events({
             Profiles.insert(
               {createdBy: Meteor.userId(),
               ProfileTitle: username, 
+              createdOn: n
+              });
+            Messages.insert(
+              {sent_to: Meteor.userId(),
+              sent_from: "admin",
+              content: "Welcome to the machine " + username +"!", 
               createdOn: n
               });
           }       
