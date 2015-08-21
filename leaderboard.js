@@ -11,6 +11,16 @@ Router.route('/search');
 Router.route('/home');
 Router.route('/editProfile');
 Router.route('/messages');
+Router.route('/post/:_id' ,{
+  template: 'post',
+  name: 'postpage',
+    data: function(){
+        var recipientId = this.params._id;
+        console.log(recipientId, Profiles.findOne({createdBy: recipientId}));
+        return Profiles.findOne({createdBy: recipientId});
+    }
+});
+
 Router.route('/subscription');
 Router.route('/favourites');
 Router.route('/likesMe');
@@ -23,9 +33,10 @@ Router.route('/results' ,{
 Router.route('/profile/:_id', {
     template: 'ProfilePage',
     data: function(){
-        var currentProfile = this.params._id;
-        console.log("This is a profile page for ", currentProfile);
-        return Profiles.findOne({ _id: currentProfile});
+        var recipientProfile = this.params._id;
+        console.log("This is a profile page for ", recipientProfile);
+        console.log(Profiles.findOne({_id: recipientProfile}));
+        return Profiles.findOne({_id: recipientProfile});
     }
 
 });
@@ -43,13 +54,13 @@ if (Meteor.isClient) {
     }),
 
    Template.messages.helpers({
-      to_me: function () {
+      toMe: function () {
         console.log("Finding messages to the current user");
-        return Messages.find({sent_to: Meteor.userId()}); //add date order sort
+        return Messages.find({sentToId: Meteor.userId()}); //add date order sort
       },
-    from_me: function () {
+    fromMe: function () {
         console.log("Finding messages from the current user");
-        return Messages.find({sent_from: Meteor.userId()}); //add date order sort
+        return Messages.find({sentFromId: Meteor.userId()}); //add date order sort
      }
   });
 
@@ -59,21 +70,44 @@ Template.messages.events({
   'submit form': function(event){
     console.log("Reply button pressed");
     var content = $('[name="content"]').val();
-    var recipient =$('[name="recipient"]').val();
-    var sender = Meteor.userId();
-    var sender_name = Profiles.findOne({_id: sender},{fields:{ProfileTitle:1}});
+    var recipientId =$('[name="recipientId"]').val();
+    var senderId = $('[name="fromId"]').val();    
+    console.log("Sending to:"+recipientId+" from "+senderId);
     var d = new Date();
     var n = d.toLocaleString();
     Messages.insert(
-              {sent_to: recipient,
-              sent_from: sender,
-              sender_name: sender_name,
+              {sentToId: recipientId,
+              sentFromId: senderId,
               content: content, 
               createdOn: n
               });
     }
 
+});
+Template.post.events({
+  'submit form': function(event){
+    console.log("Send button pressed");
+    var content = $('[name="content"]').val();
+    var recipientId =$('[name="recipientId"]').val();
+    var senderId = $('[name="fromId"]').val();
+    var senderName = Profiles.findOne({createdBy: senderId},{fields: {ProfileTitle: 1}});
+    var recepientName = Profiles.findOne({createdBy: recipientId},{fields: {ProfileTitle: 1}});
+    
+    console.log("Sending to:"+recipientId+" from"+senderId);
+    var d = new Date();
+    var n = d.toLocaleString();
+    Messages.insert(
+              {sentToId: recipientId,
+              sentToName: recepientName.ProfileTitle,
+              sentFromId: senderId,
+              sentFromName: senderName.ProfileTitle,
+              content: content, 
+              createdOn: n
+              });
+    Router.go('/home');
+  }
 })
+
   
 Template.register.events({
     'submit form': function(event){
@@ -97,12 +131,14 @@ Template.register.events({
               ProfileTitle: username, 
               createdOn: n
               });
-            Messages.insert(
-              {sent_to: Meteor.userId(),
-              sent_from: "admin",
+            /*Messages.insert(
+              {sentTo: Meteor.userId(),
+              sentToName: username,
+              senderName: "Dummy Admin",
+              sentFrom: "wMQnwHSTHokpePCid",
               content: "Welcome to the machine " + username +"!", 
               createdOn: n
-              });
+             }); */
           }       
         });        
         Router.go('/editProfile');
@@ -142,13 +178,25 @@ Template.login.events({
 Template.user.helpers({
   userName: function() {
     return Meteor.user().username;
+  },
+  userId: function() {
+    return Meteor.user()._id;
   }
 });
+Template.post.helpers({
+  userName: function() {
+    return Meteor.user().username;
+  },
+  userId: function() {
+    return Meteor.userId();
+  }
+});
+
 Template.editProfile.events({
     'submit form': function(event){
       console.log('Profile save');
       //check that Profile belongs to current user.
-        var title = $('[name="ProfileTitle"]').val();
+        var title = $('[name="username"]').val();
         var gender = $('[name="gender"]').val();
         var age = $('[name="age"]').val();
         var location = $('[name="location"]').val();
@@ -162,7 +210,7 @@ Template.editProfile.events({
         Profiles.update({_id: profileDoc._id},
         {$set:
         {
-          "ProfileTitle": title,
+          "username": title,
           "gender": gender,
           "location" : location,
           "age": age,

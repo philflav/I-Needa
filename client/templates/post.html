@@ -1,0 +1,15 @@
+<template name="post">
+{{>home}}
+
+<form class="left_just">
+	<p>Message to={{ProfileTitle}}</p>
+		Send to: 	<input type="text" name="senderName" value="{{ProfileTitle}}">
+		<input type="hidden" name="recipientId" value={{createdBy}}>
+		<input type="hidden" name="fromId" value={{userId}}>
+		<p>Message:    <textarea cols="50" rows="5" name="content" value={{content}}></textarea></p>
+
+		<p><input type="submit" value="Send" class="btn btn-default btn-lg"></p>
+
+	</form>
+
+</template>

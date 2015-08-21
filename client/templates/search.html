@@ -3,6 +3,6 @@
 	<h1>Search code goes here</h1>
 	  {{#each profiles}}
       {{name}}
-        <li><a href="/profile/{{_id}}">{{name}}</a></li>
+        <li><a href="{{pathFor route='postpage'}}">{{name}}</a></li>
       {{/each}}
 </template>
