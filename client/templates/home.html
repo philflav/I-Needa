@@ -1,12 +1,44 @@
 <template name="home">
-<div class="home_head">
-	{{#if currentUser}} 
-	Welcome back, {{> user}}
-  {{else}}
-  You are not logged in. Not everything will work.
-	{{/if}}
-</div>
-<br>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+  	{{#if currentUser}} 
+    <p class="navbar-text navbar-left">Signed in as <a href="#" class="navbar-link">{{> user}}</a></p>
+    {{else}}
+    <h2>You are not logged in. Not everything will work</h2>
+    <p class="navbar-text navbar-lext">Sign in <a href="/login" class="navbar-link"></a></p>
+  	{{/if}}
+    <br>
+      </div>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="nav navbar-nav navbar-left">
+          <li class="active "><a class="glyphicon glyphicon-search" href="/search"> Search <span class="sr-only"></span></a></li>
+           <li class="active"><a class="glyphicon glyphicon-envelope" href="/messages"> Messages <span class="sr-only"></span></a></li>
+           <li class="active "><a class="glyphicon glyphicon-leaf" href="/results"> Profiles <span class="sr-only"></span></a></li>
+           <li class="active "><a class="glyphicon glyphicon-user" href="/editProfile"> My Profile <span class="sr-only"></span></a></li>   
+           <li class="active "><a class="glyphicon glyphicon-asterisk" href="/subscription"> My Subscription <span class="sr-only"></span></a></li>
+           <li class="active "><a class="glyphicon glyphicon-star-empty" href="/favourites"> My Favourites <span class="sr-only"></span></a></li>
+           <li class="active "><a class="glyphicon glyphicon-thumbs-up" href="/likesMe"> Who Likes Me? <span class="sr-only"></span></a></li> 
+           <li class="active "><a class="glyphicon glyphicon-sunglasses" href="/lookedAt"> Who I've Looked At <span class="sr-only"></span></a></li>
+           <li class="active "><a class="glyphicon glyphicon-eye-open" href="/favourites"> Who's Looked At Me <span class="sr-only"></span></a></li>
+           {{#if currentUser}}
+           <li class="active "><a class="glyphicon glyphicon-log-out" href="/home"> Log Me Out<span class="sr-only"></span></a></li>
+           {{/if}}
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+</template>
+
+
+<!--
 <div class="sidebar-nav btn-group-vertical pull-right toggle" role="group" aria-label="...">
 <button type="button" class="btn btn-default btn-lg">
   <span class="glyphicon glyphicon-search" aria-hidden="true"></span> <a href="/search">Search</a>
@@ -40,5 +72,4 @@
   <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> <a href="/home">Log Me Out</a>
 </button>
 {{/if}}
-</div>
-</template>
+-->

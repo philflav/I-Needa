@@ -1,18 +1,23 @@
 /* CSS declarations go here */
+.body {
+	font-size: 18px;
+	font-family: "comic-sans";
+	background-color: rgb(50,50,50);
+}
 .bluehead {
-	width: 360px;
+	width: 400px;
 	background: rgb(155,155,255);
 	text-align: center;
 	color: rgb(255,255,255);
 }
 .redhead {
-	width: 360px;
+	width: 400px;
 	background: rgb(255,155,155);
 	text-align: center;
 	color: rgb(255,255,255);
 }
 .greenhead {
-	width: 360px;
+	width: 400px;
 	background: rgb(155,255,155);
 	text-align: center;
 	color: rgb(255,255,255);
@@ -23,7 +28,7 @@
 	color: rgb(30,30,30);
 }
 .my_container {
-	width: 360px;
+	width: 400px;
 	padding-left: 10px;
 	background-color:#eeeeee;
 	text-align: left;
