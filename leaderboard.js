@@ -205,12 +205,14 @@ if (Meteor.isClient) {
   Template.login.events({
     'submit form': function(event) {
       console.log('Login clicked');
+      //Dialogs.browserType = 'alertify'
       event.preventDefault();
       var email = $('[name=email]').val();
       var password = $('[name=password]').val();
       Meteor.loginWithPassword(email, password, function(error) {
         if (error) {
           console.log(error.reason);
+          Dialogs.alert(error.reason,null,"Login Error","Try Again");
         } else {
           var d = new Date();
           var n = d.toLocaleString();
