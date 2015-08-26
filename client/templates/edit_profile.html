@@ -12,6 +12,11 @@
 	    <p>UserName: 	<input type="text" name="username" value={{username}}></p>
 	    <p>Gender: 	<input type="text" name="gender" value={{gender}}></p>
 	    <p>Location: <input type="text" name="location" value={{location}}></p>
+	    <p>Service Offered: {{serviceName}}<br>
+	    	<select name="service">
+	    		{{>services}}
+	    	</select>
+	    </p>
         <p>About Me:	<textarea cols="50" rows="5" name="aboutMe" value={{aboutMe}}></textarea></p>
         <p>Age:         <input type="text" name="age" size="10" value={{age}}></p>
         <p>Experience:	<textarea  cols="50" rows="5" name="experience" value={{experience}}></textarea></p>

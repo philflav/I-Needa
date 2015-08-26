@@ -1,0 +1,10 @@
+<template name="services">
+	 Change to:<option value= "not set">--choose one--</option>
+{{#each services}}
+	{{#if selected ..}}
+	<option value= {{serviceName}} selected >{{serviceName}}</option>
+	{{else}}
+	<option value= {{serviceName}} >{{serviceName}}</option>
+	{{/if}}
+{{/each}}
+</template>	

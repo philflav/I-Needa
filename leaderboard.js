@@ -1,6 +1,6 @@
 Profiles = new Mongo.Collection("profiles");
 Messages = new Mongo.Collection("messages");
-
+Services = new Mongo.Collection("services");
 //Routes
 
 Router.route('/', {
@@ -60,8 +60,16 @@ if (Meteor.isClient) {
         return Profiles.find({});
       }
     }),
-
-    Template.messages.helpers({
+  Template.services.helpers({ 
+      services: function(){
+        console.log(Services.find({}));
+        return Services.find({}, {sort: {serviceTag: 1}});
+      },
+      selected: function(parentContext){
+        return parentContext.serviceName=this.serviceName
+      }
+  }),
+  Template.messages.helpers({
       toMe: function() {
         console.log("Finding messages to the current user");
         return Messages.find({
@@ -264,6 +272,7 @@ if (Meteor.isClient) {
       var gender = $('[name="gender"]').val();
       var age = $('[name="age"]').val();
       var location = $('[name="location"]').val();
+      var serviceName = $('[name="service"]').val();
       var aboutMe = $('[name="aboutMe"]').val();
       var exper = $('[name="experience"]').val();
       var fee = $('[name="fees"]').val();
@@ -280,6 +289,7 @@ if (Meteor.isClient) {
           "username": title,
           "gender": gender,
           "location": location,
+          "serviceName": serviceName,
           "age": age,
           "aboutMe": aboutMe,
           "experience": exper,
