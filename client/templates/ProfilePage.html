@@ -13,6 +13,29 @@
 <h4>Fees</h4>
 <p>{{fees}}</p>
 </div>
-<button type="button" ><a href="/post/{{createdBy}}">Send me a message</a></button>
+<!--<button type="button" ><a href="/post/{{createdBy}}">Send me a message</a></button>-->
+<button type="button" class=" btn-primary glyphicon glyphicon-pencil" data-toggle="modal" data-target="#myModal"> Send Me a Message</button>
 
+<!-- Modal -->
+<div class="modal mycontainer" id="myModal" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Message to {{ProfileTitle}}</h4>
+      </div>	
+      <div class="modal-body">
+      <form>
+        <input type="hidden" name="senderName" value={{sentFromName}}>
+		<input type="hidden" name="recipientId" value={{createdBy}}>
+		<input type="hidden" name="sentFromId" value={{userId}}>
+		<p>Message:    <textarea cols="100" rows="5" name="myContent" value=""></textarea></p>
+      </form>
+      <button type="button" class="send btn btn-primary" data-dismiss="modal">Send</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 </template>
