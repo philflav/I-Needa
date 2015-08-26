@@ -10,9 +10,9 @@
           <span class="icon-bar"></span>
         </button>
   	{{#if currentUser}} 
-    <p class="navbar-text navbar-left">Signed in as <a href="#" class="navbar-link">{{> user}}</a></p>
+    <h5 class="navbar-text navbar-left">Signed in as <a href="#" class="navbar-link">{{> user}}</a></h5>
     {{else}}
-    <h2>You are not logged in. Not everything will work</h2>
+    <h5>You are not logged in. Not everything will work</h5>
     <p class="navbar-text navbar-lext">Sign in <a href="/login" class="navbar-link"></a></p>
   	{{/if}}
     <br>
