@@ -31,20 +31,23 @@ Router.route('/likesMe');
 Router.route('/lookedAt');
 Router.route('/lookedAtMe');
 Router.route('/logout');
-Router.route('/results', {
-  template: 'profiles'
+Router.route('/results/:service', {
+  template: 'profiles',
+  data: function() {
+     Session.set("service",this.params.service);
+    return ;
+  }
 });
+//Router.route('/results', {
+  //template: 'profiles'
+//});
 Router.route('/profile/:_id', {
   template: 'ProfilePage',
   data: function() {
     var recipientProfile = this.params._id;
     console.log("This is a profile page for ", recipientProfile);
-    console.log(Profiles.findOne({
-      _id: recipientProfile
-    }));
-    return Profiles.findOne({
-      _id: recipientProfile
-    });
+    console.log(Profiles.findOne({_id: recipientProfile}));
+    return Profiles.findOne({_id: recipientProfile});
   }
 
 });
@@ -56,14 +59,17 @@ if (Meteor.isClient) {
   // This code only runs on the client
   Template.profiles.helpers({
       profiles: function() {
-        console.log("This is a the profiles function.");
-        return Profiles.find({});
+       console.log("This is a the profiles function for ",Session.get("service"),".");
+       return Profiles.find({serviceName:Session.get("service")});
+      },
+      service: function () {
+      return Session.get("service")
       }
     }),
   Template.services.helpers({ 
       services: function(parent){
         console.log(Services.find({}));
-        return Services.find({}, {sort: {serviceTag: 1}});
+        return Services.find({}, {sort: {serviceName: 1}});
       },
       selected: function(parentContext){
         return parentContext.serviceName==this.serviceName
@@ -239,6 +245,14 @@ if (Meteor.isClient) {
       });
     }
   });
+
+  Template.search.events({
+    'click .search': function(){
+      var service=$('[name=service]').val();
+      console.log('Seach clicked: '+service);
+      Router.go("/results/"+service);
+    }
+  })
   Template.user.helpers({
     userName: function() {
       return Meteor.user().username;

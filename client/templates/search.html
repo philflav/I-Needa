@@ -1,8 +1,13 @@
 <template name="search">
 	<title>Search</title>
-	<h1>Search code goes here</h1>
-	  {{#each profiles}}
-      {{name}}
-        <li><a href="{{pathFor route='postpage'}}">{{name}}</a></li>
-      {{/each}}
+	{{>home}}
+	<h2>Find someone</h2>
+
+	Use this page to select the service you are seeking.		
+
+	Search for: <select name="service">
+	    		{{>services}}
+	    		</select>
+
+	<p><input type="submit" value="search" class="search btn btn-default btn-lg"></p>
 </template>
