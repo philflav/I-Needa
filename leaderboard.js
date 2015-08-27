@@ -61,12 +61,12 @@ if (Meteor.isClient) {
       }
     }),
   Template.services.helpers({ 
-      services: function(){
+      services: function(parent){
         console.log(Services.find({}));
         return Services.find({}, {sort: {serviceTag: 1}});
       },
       selected: function(parentContext){
-        return parentContext.serviceName=this.serviceName
+        return parentContext.serviceName==this.serviceName
       }
   }),
   Template.messages.helpers({
