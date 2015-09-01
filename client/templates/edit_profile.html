@@ -7,20 +7,22 @@
 	<div class="my_container">
 		<p>Use this page to edit your personal profile.</p>
 		<p>Information you enter here will be visible to other users of this system</p>
+        <p> Fields marked with a * are required. All other information is optional but completing it will be helpful in finding the right people. </p>
 		<br>
 	<form class="right_just">
-	    <p>Profile Title: 	<input type="text" name="username" value={{ProfileTitle}}></p>
+	    <p>Profile Title*: 	<input type="text" name="username" value={{ProfileTitle}}></p>
 	    <p>Gender: 	<input type="text" name="gender" value={{gender}}></p>
-	    <p>Location: <input type="text" name="location" value={{location}}></p>
-	    <p>Service Offered: 
+	    <p>Location*: <input type="text" name="location" value={{location}}></p>
+        <p>Service Offered*:
 	    	<select name="service">
 	    		{{>services}}
 	    	</select>
 	    </p>
+        <p>Service Range (miles)*:<input type="number" name="distance" value={{distance}}></p>
         <p>About Me:	<textarea cols="50" rows="5" name="aboutMe" value={{aboutMe}}></textarea></p>
         <p>Age:         <input type="text" name="age" size="10" value={{age}}></p>
         <p>Experience:	<textarea  cols="50" rows="5" name="experience" value={{experience}}></textarea></p>
-        <p>Fees:		<textarea cols="50" rows="2" name="fees"  value={{fees}}></textarea></p>
+        <p>Fees*:		<textarea cols="50" rows="2" name="fees"  value={{fees}}></textarea></p>
 
         
         <p><input type="submit" value="Save" class="btn btn-default btn-lg"></p>
