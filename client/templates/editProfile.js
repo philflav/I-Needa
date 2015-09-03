@@ -7,6 +7,9 @@ Template.editProfile.helpers({
         return Profiles.find({
             createdBy: Meteor.userId()
         });
+    },
+    location: function() {
+        Session.get('location');
     }
 });
 Template.editProfile.events({
@@ -16,7 +19,7 @@ Template.editProfile.events({
         var title = $('[name="username"]').val();
         var gender = $('[name="gender"]').val();
         var age = $('[name="age"]').val();
-        var location = $('[name="location"]').val();
+        var location = Session.get('location');
         var distance = $('[name="distance"]').val();
         var serviceName = $('[name="service"]').val();
         var aboutMe = $('[name="aboutMe"]').val();

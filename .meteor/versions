@@ -13,6 +13,7 @@ bootstrap@1.0.1
 callback-hook@1.0.3
 check@1.0.5
 cscottnet:alertify-bootstrap@0.3.11
+dburles:google-maps@1.1.4
 ddp@1.1.0
 deps@1.0.7
 ejson@1.0.6

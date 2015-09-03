@@ -29,6 +29,7 @@
 }
 .my_container {
 	width: 400px;
+	height: 250px;
 	padding-left: 10px;
 	background-color:#eeeeee;
 	text-align: left;

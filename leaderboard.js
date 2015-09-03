@@ -1,6 +1,7 @@
 Profiles = new Mongo.Collection("profiles");
 Messages = new Mongo.Collection("messages");
 Services = new Mongo.Collection("services");
+Markers =  new Mongo.Collection('markers');
 //Routes
 
 Router.route('/', {
@@ -10,6 +11,7 @@ Router.route('/register');
 Router.route('/search');
 Router.route('/home');
 Router.route('/editProfile');
+Router.route('/mapit');
 Router.route('/messages');
 Router.route('/post/:_id', {
   template: 'post',
@@ -57,6 +59,38 @@ Router.route('/profile/:_id', {
 
 if (Meteor.isClient) {
   // This code only runs on the client
+  Meteor.startup(function () {
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+    function success(pos) {
+      var crd = pos.coords;
+
+      console.log('Your current position is:');
+      console.log('Latitude : ' + crd.latitude);
+      console.log('Longitude: ' + crd.longitude);
+      console.log('More or less ' + crd.accuracy + ' meters.');
+      Session.set('currentLat', crd.latitude);
+      Session.set('currentLng', crd.longitude);
+    }
+
+    function error(err) {
+      console.warn('ERROR(' + err.code + '): ' + err.message);
+    }
+    // check for Geolocation support
+    if (navigator.geolocation) {
+      console.log('Geolocation is supported!');
+      navigator.geolocation.getCurrentPosition(success,error,options);
+
+    }
+    else {
+      console.log('Geolocation is not supported for this Browser/OS version yet.');
+    }
+    GoogleMaps.load();
+  });
 
 
   //Events
