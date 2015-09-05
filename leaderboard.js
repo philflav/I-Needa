@@ -1,7 +1,7 @@
-Profiles = new Mongo.Collection("profiles");
-Messages = new Mongo.Collection("messages");
-Services = new Mongo.Collection("services");
-Markers =  new Mongo.Collection('markers');
+  Profiles = new Mongo.Collection("profiles");
+  Messages = new Mongo.Collection("messages");
+  Services = new Mongo.Collection("services");
+  Markers =  new Mongo.Collection("markers");
 //Routes
 
 Router.route('/', {
@@ -11,7 +11,7 @@ Router.route('/register');
 Router.route('/search');
 Router.route('/home');
 Router.route('/editProfile');
-Router.route('/mapit');
+Router.route('/map');
 Router.route('/messages');
 Router.route('/post/:_id', {
   template: 'post',
@@ -68,7 +68,7 @@ if (Meteor.isClient) {
 
     function success(pos) {
       var crd = pos.coords;
-
+      GoogleMaps.load();
       console.log('Your current position is:');
       console.log('Latitude : ' + crd.latitude);
       console.log('Longitude: ' + crd.longitude);
@@ -89,7 +89,7 @@ if (Meteor.isClient) {
     else {
       console.log('Geolocation is not supported for this Browser/OS version yet.');
     }
-    GoogleMaps.load();
+
   });
 
 

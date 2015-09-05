@@ -7,11 +7,9 @@ Template.editProfile.helpers({
         return Profiles.find({
             createdBy: Meteor.userId()
         });
-    },
-    location: function() {
-        Session.get('location');
     }
 });
+
 Template.editProfile.events({
     'submit form': function(event) {
         console.log('Profile save');
@@ -19,7 +17,7 @@ Template.editProfile.events({
         var title = $('[name="username"]').val();
         var gender = $('[name="gender"]').val();
         var age = $('[name="age"]').val();
-        var location = Session.get('location');
+        var location = $('[name="location"]').val();
         var distance = $('[name="distance"]').val();
         var serviceName = $('[name="service"]').val();
         var aboutMe = $('[name="aboutMe"]').val();
@@ -28,7 +26,9 @@ Template.editProfile.events({
         var profileDoc = Profiles.findOne({
             "createdBy": Meteor.userId()
         });
+        Session.set("profileDoc",profileDoc);
         console.log("Found:", profileDoc._id);
+        console.log("Returned location was: "+location+" loc:"+loc);
         var d = new Date();
         var n = d.toTimeString();
         Profiles.update({
@@ -38,6 +38,7 @@ Template.editProfile.events({
                 "username": title,
                 "gender": gender,
                 "location": location,
+                "loc": loc,
                 "distance": distance,
                 "serviceName": serviceName,
                 "age": age,

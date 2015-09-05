@@ -1,8 +1,27 @@
 <template name="map">
+    {{>home}}
+    <div class="my_container">
+        <h2>Template for location maintenance page</h2>
+
+        Use the map below to record your location. The system does not record your adress but instead records
+        your approximate location in order localise the area in which services are offered or sought.
+
+        Click anywhere on the map to drag it around the screen.
+
+        Click on the location marker to position it at or near your location on the map.
+
+        <br>...{{geo.location}}<br>
     <div class="map-container">
-        {{> googleMap name="map" options=mapOptions}}
+       {{> googleMap name="map" options=mapOptions}}
+        //{{> googleMap name="map" }}
      </div>
     <p>
         Your location will be shown as:- {{location}}
     </p>
+        <p><form action="../editProfile">
+        <button type="submit" >Save and go to editing your profile</button>
+    </form>
+        </p>
+
+    </div>
 </template>
