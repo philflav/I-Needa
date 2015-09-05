@@ -37,8 +37,6 @@ Template.editProfile.events({
             $set: {
                 "username": title,
                 "gender": gender,
-                "location": location,
-                "loc": loc,
                 "distance": distance,
                 "serviceName": serviceName,
                 "age": age,
