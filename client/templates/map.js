@@ -79,7 +79,7 @@ if (Meteor.isClient) {
 
                             jQuery.each(address_components, function(k,v1) {jQuery.each(v1.types, function(k2, v2){addcomp[v2]=v1.long_name});});
                             Session.set("location",addcomp.locality+","+addcomp.country);
-                            alert("You are changing your location to " + addcomp.locality);
+                            //alert("You are changing your location to " + addcomp.locality);
                             console.log(addcomp);
                             Profiles.update({_id: geo._id}, {
                                 $set: {

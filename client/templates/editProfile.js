@@ -28,7 +28,6 @@ Template.editProfile.events({
         });
         Session.set("profileDoc",profileDoc);
         console.log("Found:", profileDoc._id);
-        console.log("Returned location was: "+location+" loc:"+loc);
         var d = new Date();
         var n = d.toTimeString();
         Profiles.update({
@@ -37,7 +36,6 @@ Template.editProfile.events({
             $set: {
                 "username": title,
                 "gender": gender,
-                "distance": distance,
                 "serviceName": serviceName,
                 "age": age,
                 "aboutMe": aboutMe,
