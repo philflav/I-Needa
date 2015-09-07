@@ -22,7 +22,7 @@ a { cursor: pointer; }
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15); }
 
 body {
-  background: #eee;
+  background: #f4f4f4;
   color: #666666; }
 
 #main {
@@ -190,7 +190,7 @@ h1 {
 }
 h3, .gamma {
     font-size: 30px;
-    color: #fa777f;
+    color: #84c5fa;
     margin-bottom: 12px;
 }
 .profile .profile-details .info {

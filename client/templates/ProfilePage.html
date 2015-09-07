@@ -1,55 +1,80 @@
 <template name="ProfilePage">
-{{>home}}
+    {{>home}}
     <div class="container">
-    <div class="panel panel-info">
-        <div class="h2 panel-heading">
-Member Profile for {{ProfileTitle}}
+        <div class="panel panel-success">
+            <div class="h3 panel-heading">
+                Member Profile for {{ProfileTitle}}
             </div>
-        <div class="panel-body">
- <h4>Name: {{ProfileTitle}} </h4>
- <h4>Service: {{serviceName}}</h4>
-            <div class="row">
-                <div class="col-md-2">
-                    Gender: {{gender}}</div>
-                <div class="col-md-1"></div>
-                <div class=" col-md-1">
-                    Age: {{age}}</div>
-                <div class="col-md-4">
-                    Location: {{location}}</div>
-            </div>
-<h2>My Summary</h2>
-<div class="container">
-<h4>About me</h4>
-<p>{{aboutMe}}</p><br>
-<h4>My Experience</h4>
-<p>{{experience}}</p><br>
-<h4>Fees</h4>
-<p>{{fees}}</p>
-</div></div></div>
-<!--<button type="button" ><a href="/post/{{createdBy}}">Send me a message</a></button>-->
-<button type="button" class=" btn-primary btn-lg glyphicon glyphicon-pencil" data-toggle="modal" data-target="#myModal"> Send {{ProfileTitle}} a Message</button>
+            <div class="panel-body">
+                <h4>Name: {{ProfileTitle}} </h4>
+                <h4>Service: {{serviceName}}</h4>
 
-<!-- Modal -->
-<div class="modal container" id="myModal" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Message to {{ProfileTitle}}</h4>
-      </div>	
-      <div class="modal-body">
-      <form>
-        <input type="hidden" name="senderName" value={{sentFromName}}>
-		<input type="hidden" name="recipientId" value={{createdBy}}>
-		<input type="hidden" name="sentFromId" value={{userId}}>
-		<p>Message:<br>    <textarea cols="50" rows="5" name="myContent" value=""></textarea></p>
-      </form>
-      <button type="button" class="send btn btn-primary" data-dismiss="modal">Send</button>
-      <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-      </div>
+                <div class="row">
+                    <div class="h5 col-md-2">
+                        Gender: {{gender}}</div>
+                    <div class="h5 col-md-2">
+                        Age: {{age}}</div>
+                    <div class="h5 col-md-4">
+                        Location: {{location}}</div>
+                </div>
+                <h3>My Summary</h3>
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <h5>About me:</h5>
+                    </div>
+                    <div class="col-md-10">
+                        <p>{{aboutMe}}</p><br>
+                    </div>
+                </div>
+                    <div class="row">
+                    <div class="col-md-2">
+                        <h5>My Experience:</h5>
+                    </div>
+                    <div class="col-md-10">
+                        <p>{{experience}}</p><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <h5>Fees:</h5>
+                    </div>
+                    <div class="col-md-10">
+                        <p>{{fees}}</p>
+                    </div>
+                </div>
+            </div>
     </div>
 
-  </div>
-</div>
+    <!--<button type="button" ><a href="/post/{{createdBy}}">Send me a message</a></button>-->
+    <button type="button" class=" btn-primary btn-lg glyphicon glyphicon-pencil" data-toggle="modal"
+            data-target="#myModal"> Send {{ProfileTitle}} a Message
+    </button>
+
+    <!-- Modal -->
+    <div class="modal container" id="myModal" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Message to {{ProfileTitle}}</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="hidden" name="senderName" value={{sentFromName}}>
+                        <input type="hidden" name="recipientId" value={{createdBy}}>
+                        <input type="hidden" name="sentFromId" value={{userId}}>
+
+                        <p>Message:<br> <textarea cols="50" rows="5" name="myContent" value=""></textarea></p>
+                    </form>
+                    <button type="button" class="send btn btn-primary" data-dismiss="modal">Send</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
     </div>
 </template>
