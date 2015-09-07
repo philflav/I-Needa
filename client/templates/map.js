@@ -11,9 +11,9 @@ if (Meteor.isClient) {
             if (GoogleMaps.loaded()) {
                 var currentLatitude = Session.get('currentLat');
                 var currentLongitude = Session.get('currentLng');
-                var mapLat=currentLatitude;
-                var mapLng=currentLongitude;
-                var geo = Profiles.findOne({createdBy: Meteor.userId()}, {fields: { loc: 1}});
+                var mapLat = currentLatitude;
+                var mapLng = currentLongitude;
+                var geo = Profiles.findOne({createdBy: Meteor.userId()}, {fields: {loc: 1}});
                 if (geo.loc) {
                     mapLat = geo.loc[0];
                     mapLng = geo.loc[1]
@@ -46,11 +46,11 @@ if (Meteor.isClient) {
             //And put marker on map
 
             var geo = Profiles.findOne({createdBy: Meteor.userId()}, {fields: {location: 1, loc: 1}});
-            Session.set("location",geo.location);
+            Session.set("location", geo.location);
             var currentLatitude = Session.get('currentLat');
             var currentLongitude = Session.get('currentLng');
-            var mapLat=currentLatitude;
-            var mapLng=currentLongitude;
+            var mapLat = currentLatitude;
+            var mapLng = currentLongitude;
             if (geo.loc) {
                 mapLat = geo.loc[0];
                 mapLng = geo.loc[1]
@@ -71,14 +71,23 @@ if (Meteor.isClient) {
 
                 var geocoder = new google.maps.Geocoder;
                 var latlng = {lat: event.latLng.lat(), lng: event.latLng.lng()};
-                geocoder.geocode({'location': latlng}, function(results, status) {
-                    addcomp={};
+                geocoder.geocode({'location': latlng}, function (results, status) {
+                    addcomp = {};
                     if (status === google.maps.GeocoderStatus.OK) {
                         if (results[0]) {
                             var address_components = results[0].address_components;
-
-                            jQuery.each(address_components, function(k,v1) {jQuery.each(v1.types, function(k2, v2){addcomp[v2]=v1.long_name});});
-                            Session.set("location",addcomp.locality+","+addcomp.country);
+                            var addcomp = {};
+                            jQuery.each(address_components, function (k, v1) {
+                                jQuery.each(v1.types, function (k2, v2) {
+                                    addcomp[v2] = v1.long_name
+                                });
+                            });
+                            if (!addcomp.locality) {
+                            //keep undefined locations private
+                                addcomp.locality = "private";
+                                addcomp.country = "";
+                            }
+                            Session.set("location", addcomp.locality + "," + addcomp.country);
                             //alert("You are changing your location to " + addcomp.locality);
                             console.log(addcomp);
                             Profiles.update({_id: geo._id}, {
@@ -89,7 +98,7 @@ if (Meteor.isClient) {
 
                             });
                         } else {
-                            Session.set("location","no location found");
+                            Session.set("location", "no location found");
                         }
                     } else {
                         window.alert('Geocoder failed due to: ' + status);
@@ -98,11 +107,11 @@ if (Meteor.isClient) {
                 });
 
 
-                });
             });
         });
+    });
 
-    }
+}
 
 
 
