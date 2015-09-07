@@ -1,67 +1,107 @@
 <template name="messages">
-	{{>home}}
-	<h3 class="bluehead panel-group" id="accordion" role="tablist" aria-multiselecatable="false">My In Box</h3>
-	<div class="panel panel-default">
-		{{#each toMe}}
-		<div class="panel-heading" role="tab" id="heading{{_id}}">
-			<h4 class="panel-title">
-		<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{_id}}" aria-expanded="true" aria-controls="collapse{{_id}}">	Message from: {{sentFromName}}</a>
-			</h4>
-		</div>
-		<div id="collapse{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{_id}}" aria-expanded="false" >
-		<div class="panel-body">
-				{{content}}
-			</div>
-		</div>
-	<button type="button" class=" btn-primary glyphicon glyphicon-pencil" data-toggle="modal" data-target="#myModal"> Reply</button>
-	<div class="plain">
-		Sent at: {{createdOn}}<br>
-	</div>
-			<!-- Modal -->
-<div class="modal" id="myModal" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="">
-    <div class="modal-content my_container">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Reply to {{sentFromName}}</h4>
-      </div>
-      <div class="modal-body">
-      <form>
-        <input type="hidden" name="senderName" value={{sentFromName}}>
-		<input type="hidden" name="recipientId" value={{sentFromId}}>
-		<input type="hidden" name="sentFromId" value={{sentToId}}>
-		<p>Message:    <textarea cols="100" rows="5" name="myContent" value=""></textarea></p>
-      </form>
-      <button type="button" class="send btn btn-primary" data-dismiss="modal">Send</button>
-      <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-      </div>
+    {{>home}}
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Message Box<small> not your usual email!</small></h1>
+        </div>
+        <div class="panel-info">
+
+            <div class="h2 panel-heading">My In Box</div>
+
+            {{#each toMe}}
+                <div class="panel-info" id="accordion" role="tablist" aria-multiselecatable="false">
+                    <div class="panel-header" role="tab" id="heading{{_id}}">
+                        <div class="row">
+                            <div class="col-md-10 col-sm-9 col-xs-3">
+                                <div class="panel-heading">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                       href="#collapse{{_id}}"
+                                       aria-expanded="true" aria-controls="collapse{{_id}}"> Message
+                                        from: {{sentFromName}}</a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-1>">
+                                <button type="button" class=" btn-primary btn-lg glyphicon glyphicon-pencil"
+                                        data-toggle="modal"
+                                        data-target="#myModal"> Reply
+                                </button>
+                            </div>
+                            <br>
+                        </div>
+                        <div id="collapse{{_id}}" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="heading{{_id}}" aria-expanded="false">
+                            <div class="panel-body">
+                                {{content}}
+                            </div>
+                        </div>
+                        <br>
+
+                    </div>
+                    <div class="plain">
+
+                        Sent at: {{createdOn}}<br>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal" id="myModal" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="">
+                            <div class="modal-content container">
+                                <div class="h2 modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Reply to {{sentFromName}}</h4>
+                                </div>
+                                <div class="modal-body">
+                                    Message content:<br>
+                                    {{content}}<br>
+                                    Sent at: {{createdOn}}
+                                    <form>
+                                        <input type="hidden" name="senderName" value={{sentFromName}}>
+                                        <input type="hidden" name="recipientId" value={{sentFromId}}>
+                                        <input type="hidden" name="sentFromId" value={{sentToId}}>
+
+                                        <p>Message: <textarea cols="100" rows="5" name="myContent" value=""></textarea>
+                                        </p>
+                                    </form>
+                                    <button type="button" class="send btn btn-primary" data-dismiss="modal">Send
+                                    </button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+
+        </div>
+
+        <div class="panel-info">
+        <div class="h2 panel-heading" id="accordion" role="tablist" aria-multiselecatable="false">My Sent
+            Messages</div>
+
+        <div class="panel panel-default">
+            {{#each fromMe}}
+                <div class="panel-heading" role="tab" id="heading{{_id}}">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{_id}}"
+                           aria-expanded="true" aria-controls="collapse{{_id}}"> Message to: {{sentToName}}</a>
+                    </h4>
+                </div>
+                <div id="collapse{{_id}}" class="panel-collapse collapse" role="tabpanel"
+                     aria-labelledby="heading{{_id}}" aria-expanded="false">
+                    <div class="panel-body">
+                        {{content}}
+                    </div>
+                </div>
+
+                <div class="plain">
+                    Sent at: {{createdOn}}<br>
+                </div>
+            {{/each}}
+        </div>
     </div>
-
-  </div>
-</div>
-		{{/each}}
-	</div>
-
-
-	<h3 class="bluehead panel-group" id="accordion" role="tablist" aria-multiselecatable="false">My Sent Messages</h3>
-	<div class="panel panel-default">
-		{{#each fromMe}}
-		<div class="panel-heading" role="tab" id="heading{{_id}}">
-			<h4 class="panel-title">
-		<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{_id}}" aria-expanded="true" aria-controls="collapse{{_id}}">	Message to: {{sentToName}}</a>
-			</h4>
-		</div>
-		<div id="collapse{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{_id}}" aria-expanded="false" >
-			<div class="panel-body">
-				{{content}}
-			</div>
-		</div>
-
-	<div class="plain">
-		Sent at: {{createdOn}}<br>
-	</div>
-		{{/each}}
-	</div>
-	
-
+    </div>
 </template>

@@ -1,25 +1,36 @@
 <template name="ProfilePage">
 {{>home}}
-<h2 class="bluehead">Member Profile for {{ProfileTitle}}</h2>
+    <div class="container">
+    <div class="panel panel-info">
+        <div class="h2 panel-heading">
+Member Profile for {{ProfileTitle}}
+            </div>
+        <div class="panel-body">
  <h4>Name: {{ProfileTitle}} </h4>
  <h4>Service: {{serviceName}}</h4>
- Gender:{{gender}}<br>
- Age: {{age}}<br>
- Location: {{location}}<br>
-<h2 class="bluehead">My Summary</h2>
-<div class="my_container">
+            <div class="row">
+                <div class="col-md-2">
+                    Gender: {{gender}}</div>
+                <div class="col-md-1"></div>
+                <div class=" col-md-1">
+                    Age: {{age}}</div>
+                <div class="col-md-4">
+                    Location: {{location}}</div>
+            </div>
+<h2>My Summary</h2>
+<div class="container">
 <h4>About me</h4>
 <p>{{aboutMe}}</p><br>
 <h4>My Experience</h4>
 <p>{{experience}}</p><br>
 <h4>Fees</h4>
 <p>{{fees}}</p>
-</div>
+</div></div></div>
 <!--<button type="button" ><a href="/post/{{createdBy}}">Send me a message</a></button>-->
-<button type="button" class=" btn-primary glyphicon glyphicon-pencil" data-toggle="modal" data-target="#myModal"> Send Me a Message</button>
+<button type="button" class=" btn-primary btn-lg glyphicon glyphicon-pencil" data-toggle="modal" data-target="#myModal"> Send {{ProfileTitle}} a Message</button>
 
 <!-- Modal -->
-<div class="modal mycontainer" id="myModal" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal container" id="myModal" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="">
     <div class="modal-content">
       <div class="modal-header">
@@ -31,7 +42,7 @@
         <input type="hidden" name="senderName" value={{sentFromName}}>
 		<input type="hidden" name="recipientId" value={{createdBy}}>
 		<input type="hidden" name="sentFromId" value={{userId}}>
-		<p>Message:    <textarea cols="100" rows="5" name="myContent" value=""></textarea></p>
+		<p>Message:<br>    <textarea cols="50" rows="5" name="myContent" value=""></textarea></p>
       </form>
       <button type="button" class="send btn btn-primary" data-dismiss="modal">Send</button>
       <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
@@ -40,4 +51,5 @@
 
   </div>
 </div>
+    </div>
 </template>

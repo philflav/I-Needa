@@ -12,7 +12,6 @@ iron:router
 accounts-ui
 accounts-password
 twbs:bootstrap
-bootstrap
 hybrid:dialogs
-cscottnet:alertify-bootstrap
 dburles:google-maps
+jamiter:pluralize

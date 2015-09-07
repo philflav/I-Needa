@@ -11,5 +11,9 @@ Template.profiles.helpers({
     },
     service: function () {
         return Session.get("service")
+    },
+    pService: function () {
+        //Return plural of service as pservice
+        return pluralize(Session.get("service"))
     }
 })

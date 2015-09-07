@@ -1,37 +1,101 @@
 <template name="editProfile">
-	{{>home}}
-	<h3 class="bluehead">My Profile</h3>	
+    {{>home}}
+    <div class="container">
 
-	{{#each myProfile}}
+        {{#each myProfile}}
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    Use this page to edit your personal profile.
+                </div>
 
-	<div class="my_container">
-		<p>Use this page to edit your personal profile.</p>
-		<p>Information you enter here will be visible to other users of this system</p>
-        <p> Fields marked with a * are required. All other information is optional but completing it will be helpful in finding the right people. </p>
-		<br>
-	<form class="right_just">
-	    <p>Profile Title*: 	<input type="text" name="username" value={{ProfileTitle}}></p>
-	    <p>Gender: 	<input type="text" name="gender" value={{gender}}></p>
-        <p><form action="../map">
-            <button type="submit" >Map Your Location*:</button>
-	    <input type="text" name="location" value={{location}}>
-        </form></p>
-            <p>Service Offered*:
-	    	<select name="service">
-	    		{{>services}}
-	    	</select>
-	    </p>
-        <p>Service Range (miles)*:<input type="number" name="distance" value={{distance}}></p>
-        <p>About Me:	<textarea cols="50" rows="5" name="aboutMe" value={{aboutMe}}></textarea></p>
-        <p>Age:         <input type="text" name="age" size="10" value={{age}}></p>
-        <p>Experience:	<textarea  cols="50" rows="5" name="experience" value={{experience}}></textarea></p>
-        <p>Fees*:		<textarea cols="50" rows="2" name="fees"  value={{fees}}></textarea></p>
+                <div class="panel-body">
 
-        
-        <p><input type="submit" value="Save" class="btn btn-default btn-lg"></p>
-    	
+                    Information you enter here will be visible to other users of this system<br>
 
-    </form>
+                    Fields marked with a * are required. All other information is optional but completing it will be
+                    helpful in finding the right people.
+                </div>
+            </div>
+
+            <br>
+
+            <div class="panel-primary">
+                <div class="panel-body">
+                    <form class="">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p>Profile Title*: <input type="text" class="form-control" name="username"
+                                                          value={{ProfileTitle}}>
+                                </p>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1">
+                                <p>Gender:
+                                    <select name="gender">
+                                        {{>genders}}
+                                    </select>
+                                </p>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1 col-xs-3">
+                                Age: <input type="text" name="age" class="form-control" value={{age}}>
+                            </div>
+                        </div>
+                        <br>
+                        <!--<p>Gender: <input type="text" class="form-control" name="gender" value={{gender}}></p>-->
+                        <div class="row">
+                            <form action="../map">
+                                <div class="col-md-1">
+                                    <button class="btn btn-primary" type="submit">Map Your Location*:</button>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-6"><input type="text" class="form-control" name="location"
+                                                             value={{location}}></div>
+                                <br>
+                            </form>
+
+                        </div>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-2"><p>Service Offered*:
+                                <select name="service">
+                                    {{>services}}
+                                </select>
+                            </p></div>
+                        </div>
+
+
+                        <!--TODO                  Service Range (miles)*:<input type="number" class="form-control" name="distance"
+                                                     value={{distance}}>-->
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                About Me: <textarea rows="5" class="form-control" name="aboutMe"
+                                                    value={{aboutMe}}></textarea></div>
+                        </div>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                Experience: <textarea rows="5" class="form-control" name="experience"
+                                                      value={{experience}}></textarea></div>
+                        </div>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-10">
+                                Fees*: <textarea rows="2" name="fees" value={{fees}}></textarea>
+                            </div>
+                        </div>
+
+                        <p><input type="submit" value="Save" class="btn btn-primary"></p>
+                    </form>
+
+                </div>
+            </div>
+        {{/each}}
     </div>
-    {{/each}}
+
 </template>

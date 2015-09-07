@@ -1,27 +1,50 @@
 <template name="login">
-<div name="container-fluid">
-	<h2>Service Finder</h2>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Local Service Finder</h1>
 
-	<p>A community based app to find people offering services from Gardening to Child Care.</p>
+            <p>This is a work in progress project which will eventually be converted into a fully fledged app for
+                Android
+                and IoS. It needs a cool name!
+            </p>
 
-	<p>You will need to register to be able to make full use of this app.</p>
+            <p>It is intended to be a local community based app to find people offering services from Gardening to
+                Personal Trainer both on a paid and voluntary basis. There is more work to do but the basic framework is
+                now ready for 'alpha testing' and I would be pleased to get your feedback comments and suggestions. </p>
 
-<h2>Login</h2>
-    <form class="login">
-        <p>Email: <input type="email" name="email"></p>
-        <p>Password: <input type="password" name="password"></p>
-        <p><input type="submit" value="Login" class="login btn btn-default btn-lg"></p>
-    </form>
+            <p>You will need to register to be able to make full use of this app. Please note: an email address is only
+                used for creating a unique ID. The system makes no use of you email other than for that purpose.
+                Eventually there
+                will be OAuth login capability to enable login via Facebook, Google+ LinkedIn etc.</p>
 
-<button type="button" class="login btn btn-default btn-lg">
-  <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> <a href="/register">Register</a>
-</button>
-<br>
-<footer>
-	<p>Application developed by Martello software (c)2015</p>
 
-	<p>All rights reserved.</p>
+            <button type="button" class="login btn btn-default btn-lg">
+                <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> <a href="/register">Register</a>
+            </button>
+        </div>
 
-</footer>
-</div>   
+        <div class="panel panel-info">
+            <h2>Login</h2>
+
+            <form class="login">
+                <p>Email: <input type="email" name="email"></p>
+
+                <p>Password: <input type="password" name="password"></p>
+
+                <p><input type="submit" value="Login" class="login btn btn-default btn-lg"></p>
+            </form>
+
+            <button type="button" class="login btn btn-default btn-lg">
+                <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> <a href="/register">Register</a>
+            </button>
+            <br>
+        </div>
+
+        <footer>
+            <p>Application developed by Martello software (c)2015</p>
+
+            <p>All rights reserved.</p>
+
+        </footer>
+    </div>
 </template>

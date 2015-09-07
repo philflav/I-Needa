@@ -9,6 +9,7 @@
 
 
 }
+a { cursor: pointer; }
 
 
 .grid-block, .main, .post, .comments li, .comment-form {
@@ -34,7 +35,7 @@ body {
 }
 
 .navbar {
-  margin-bottom: 10 px; }
+  margin-bottom: 10px;}
   /* line 32, ../sass/style.scss */
   .navbar .navbar-inner {
     border-radius: 0px 0px 2px 2px; }
@@ -172,7 +173,6 @@ body {
   pointer-events: auto;
 }
 .tags tr td.positive {
-    background: transparent url(./resources/tick-green.png) center left no-repeat;
     background-size: 20px;
     padding-left: 25px;
     font-weight: bold;

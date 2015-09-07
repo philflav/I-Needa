@@ -7,4 +7,15 @@
 	<option value= {{serviceName}} >{{serviceName}}</option>
 	{{/if}}
 {{/each}}
-</template>	
+</template>
+
+<template name="genders">
+    Change to:<option value= "not set">--choose one--</option>
+    {{#each gender }}
+        {{#if selected ..}}
+            <option value= {{genderName}} selected >{{genderName}}</option>
+        {{else}}
+            <option value= {{genderName}} >{{genderName}}</option>
+        {{/if}}
+    {{/each}}
+</template>

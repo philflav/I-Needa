@@ -1,19 +1,30 @@
 <template name="profiles">
-<title>Profile Summaries</title>
-<body>
-{{>home}}
-<h2 class="bluehead">Profile Summaries for {{service}}</h2>
+    <title>Profile Summaries</title>
 
-	<div class ="my_container">
-		{{#each profiles}}
-        <a href="/profile/{{_id}}">{{ProfileTitle}}</a><br>
-        Gender: {{gender}}<br>
-        Age: {{age}}<br>
-        Location: {{location}}<br>
-	    <div class="plain">
-	        Last login: {{lastLogIn}}<br>
-	 	</div>	
-    {{/each}}
+    {{>home}}
+    <div class="container ">
+        <div class="panel panel-info"></div>
+        <div class="panel heading">
+            Profile Summaries for {{pService}}</div>
+
+        <div class="panel-body">
+            {{#each profiles}}
+                <a href="/profile/{{_id}}">{{ProfileTitle}}</a><br>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        Gender: {{gender}}</div>
+                    <div class="col-md-1"></div>
+                    <div class=" col-md-1">
+                        Age: {{age}}</div>
+                    <div class="col-md-4">
+                        Location: {{location}}</div>
+                </div>
+                <div class="plain">
+                    Last login: {{lastLogIn}}<br>
+                </div>
+            {{/each}}
+        </div>
     </div>
-</body>
+
 </template>
