@@ -2,7 +2,7 @@
  * Created by Phil on 01/09/2015.
  */
 Template.register.events({
-    'submit form': function(event) {
+    'submit form': function (event) {
         event.preventDefault();
         var username = $('[name=username]').val();
         var email = $('[name=email]').val();
@@ -12,7 +12,7 @@ Template.register.events({
             email: email,
             password: password
         });
-        Meteor.loginWithPassword(username, password, function(error) {
+        Meteor.loginWithPassword(username, password, function (error) {
             if (error) {
                 console.log(error.reason);
             } else {
@@ -21,7 +21,9 @@ Template.register.events({
                 Profiles.insert({
                     createdBy: Meteor.userId(),
                     ProfileTitle: username,
-                    createdOn: n
+                    createdOn: n,
+                    loc: [Session.get('currentLat') + .01, Session.get('currentLng') + .01], //set initial location nearby to force a user to update witha drag event.
+                    location: "not set"
                 });
                 /*Messages.insert(
                  {sentTo: Meteor.userId(),

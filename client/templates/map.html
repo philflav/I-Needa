@@ -2,29 +2,41 @@
     {{>home}}
     <div class="container">
         <div class="panel panel-primary">
-            <div class="panel-heading">Update your location</div>
+            <div class="panel-heading">Update
+            your
+            location</div>
             <div class="panel-body">
-                Use the map below to record your location. The system does not record your address but instead records
-                your approximate location in order localise the area in which services are offered or sought. Click
-                on the marker to drag it around the map. Click anywhere else on the map to move it around.<br>
-                Use marker to position it at or near your location on the map. If you wish to keep your
-                location private from other users, choose an area of the map nearby to your actual location that is
-                shows as 'private'.
-            </div>
-            <div class="map-container">
-                {{> googleMap name="map" options=mapOptions}}
-            </div>
-            <br>
+                <div class="row">
+                    <div class="col-md-6">
 
-            <div class="panel panel-danger">
-                <div class="panel-heading">Your Location</div>
-                <div class="panel-body">
-                    Your location will be recorded as:- {{location}}
+                        Use the map below to record your location. The system does not record your address but instead
+                        records your approximate geographic location in order localise the area in which services are offered or sought.
+                        Click on the marker to drag it around the map. Click anywhere else on the map to move it around.<br>
+                        Position the marker at or near your normal location on the map. If you wish to keep your
+                        location private from other users, choose an area of the map nearby to your normal location that
+                        shows as 'private'.
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="h4">Your
+                        location</div>
+
+                        Your location will be recorded as:- <strong> {{location}}</strong><br><br>
+                    </div>
+
+                    <form action="../editProfile">
+                        <button class="btn btn-success" type="submit">Return to editing your profile</button>
+                    </form>
                 </div>
             </div>
-            <form action="../editProfile">
-                <button class="btn btn-primary" type="submit">Return to editing your profile</button>
-            </form>
         </div>
+
     </div>
+
+    <div class="map-container">
+        {{> googleMap name="map" options=mapOptions}}
+    </div>
+    <br>
+
+
 </template>

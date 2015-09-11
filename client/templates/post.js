@@ -32,6 +32,8 @@ Template.post.events({
             sentFromId: senderId,
             sentFromName: senderName.ProfileTitle,
             content: content,
+            "hideIn": "no",
+            "hideOut": "no",
             createdOn: n
         });
         Router.go('/home');

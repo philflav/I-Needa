@@ -12,7 +12,7 @@ Template.services.helpers({
 })
 Template.genders.helpers({
     gender: function(parent){
-        return [{genderName:"Male"},{genderName:"Female"}];
+        return [{genderName:"Male"},{genderName:"Female"},{genderName:"other"}];
     },
     selected: function(parentContext){
         return parentContext.gender==this.genderName

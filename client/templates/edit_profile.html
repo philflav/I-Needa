@@ -10,10 +10,10 @@
 
                 <div class="panel-body">
 
-                    Information you enter here will be visible to other users of this system<br>
+                    Information you enter here will be visible to other users of I-NEEDA<br>
 
                     Fields marked with a * are required. All other information is optional but completing it will be
-                    helpful in finding the right people.
+                    helpful in connecting with the right people.
                 </div>
             </div>
 
@@ -24,13 +24,13 @@
                     <form class="">
                         <div class="row">
                             <div class="col-md-4">
-                                <p>Profile Title*: <input type="text" class="form-control" name="username"
+                                <p>Profile Title*: <input type="text" class="form-control" name="ProfileTitle"
                                                           value={{ProfileTitle}}>
                                 </p>
                             </div>
                             <div class="col-md-1"></div>
                             <div class="col-md-1">
-                                <p>Gender:
+                                <p>Gender*:
                                     <select name="gender">
                                         {{>genders}}
                                     </select>
@@ -46,7 +46,7 @@
                         <div class="row">
                             <form action="../map">
                                 <div class="col-md-1">
-                                    <button class="btn btn-primary" type="submit">Map Your Location*:</button>
+                                    <button class="btn btn-success" type="submit">Map Your Location*:</button>
                                 </div>
                                 <div class="col-md-1"></div>
                                 <div class="col-md-6"><input type="text" class="form-control" name="location"
@@ -70,32 +70,49 @@
                                                      value={{distance}}>-->
                         <br>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                About Me: <textarea rows="5" class="form-control" name="aboutMe"
-                                                    value={{aboutMe}}></textarea></div>
-                        </div>
-                        <br>
 
                         <div class="row">
-                            <div class="col-md-12">
-                                Experience: <textarea rows="5" class="form-control" name="experience"
-                                                      value={{experience}}></textarea></div>
-                        </div>
-                        <br>
+                            <div class="col-md-5">
+                                <div class="panel-primary">
+                                    <div class="panel-heading"><h3 class="panel-title">About Me</h3>
+                                    </div>
+                                    <div class="panel-body"><textarea rows="3" class="form-control" name="aboutMe"
+                                                                      value={{aboutMe}}></textarea></div>
+                                </div>
+                            </div>
 
-                        <div class="row">
-                            <div class="col-md-10">
-                                Fees*: <textarea rows="2" name="fees" value={{fees}}></textarea>
+
+                            <div class="col-md-5">
+                                <div class="panel-primary">
+                                    <div class="panel-heading"><h3 class="panel-title">Experience as
+                                        a {{serviceName}}</h3>
+                                    </div>
+                                    <div class="panel-body"> <textarea rows="3" class="form-control"
+                                                                       name="experience"
+                                                                       value={{experience}}></textarea></div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="panel-primary">
+                                    <div class="panel-heading"><h3 class="panel-title">Fees or voluntary? </h3>
+                                    </div>
+                                    <div class="panel-body"><textarea rows="3" class="form-control" name="fees"
+                                                                      value={{fees}}></textarea>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <p><input type="submit" value="Save" class="btn btn-primary"></p>
+                        <p><input type="submit" value="Save Your Profile" class="btn btn-success"></p>
                     </form>
-
                 </div>
-            </div>
-        {{/each}}
-    </div>
 
+
+            </div>
+
+
+            <footer>Profile last updated on {{lastUpdate}}</footer>
+        {{/each}}
+
+    </div>
 </template>

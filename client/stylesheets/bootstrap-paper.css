@@ -3689,7 +3689,7 @@ tbody.collapse.in {
     bottom: 100%;
     margin-bottom: 2px;
 }
-@media (min-width: 768px) {
+@media (min-width: 1000px) {
     .navbar-right .dropdown-menu {
         left: auto;
         right: 0;
@@ -4244,7 +4244,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-collapse.in {
     overflow-y: auto;
 }
-@media (min-width: 768px) {
+@media (min-width: 1000px) {
     .navbar-collapse {
         width: auto;
         border-top: 0;
@@ -4297,7 +4297,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     z-index: 1000;
     border-width: 0 0 1px;
 }
-@media (min-width: 768px) {
+@media (min-width: 1000 px) {
     .navbar-static-top {
         border-radius: 0;
     }

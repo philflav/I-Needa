@@ -28,6 +28,8 @@ Template.ProfilePage.events({
             sentToName: (recipientName["ProfileTitle"]),
             sentFromId: senderId,
             sentFromName: (senderName["ProfileTitle"]),
+            "hideIn": "no",
+            "hideOut": "no",
             content: content,
             createdOn: n
         });

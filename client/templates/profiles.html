@@ -3,11 +3,12 @@
 
     {{>home}}
     <div class="container ">
-        <div class="panel panel-info"></div>
-        <div class="panel heading">
-            Profile Summaries for {{pService}}</div>
+        <div class="panel panel-success">
+        <div class="panel-heading">
+            Profile Summaries for local {{pService}}</div>
 
         <div class="panel-body">
+            <div class="well">The nearest {{service}} to your location is shown first.<br></div>
             {{#each profiles}}
                 <a href="/profile/{{_id}}">{{ProfileTitle}}</a><br>
 
@@ -21,10 +22,11 @@
                         Location: {{location}}</div>
                 </div>
                 <div class="plain">
-                    Last login: {{lastLogIn}}<br>
+                    Last logged in: {{lastLogIn}}<br>
                 </div>
             {{/each}}
         </div>
+    </div>
     </div>
 
 </template>

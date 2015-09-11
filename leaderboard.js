@@ -80,6 +80,8 @@ if (Meteor.isClient) {
 
         function error(err) {
             console.warn('ERROR(' + err.code + '): ' + err.message);
+            Session.set('currentLat', 0);
+            Session.set('currentLng', 0);
         }
 
         // check for Geolocation support
@@ -90,6 +92,8 @@ if (Meteor.isClient) {
         }
         else {
             console.log('Geolocation is not supported for this Browser/OS version yet.');
+            Session.set('currentLat', 0);
+            Session.set('currentLng', 0);
         }
 
     });
