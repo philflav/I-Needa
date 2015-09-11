@@ -25,7 +25,7 @@ Template.login.events({
                         "lastLogIn": n
                     }
                 });
-                Router.go("/home");
+                Router.go("/search");
             }
         });
     }
