@@ -1,12 +1,44 @@
 <template name="register">
     <div class="container">
-    <h2>Register</h2>
-        Please register with a username - this can be anything you like - an email address and password. In future you will login using your email address.
-    <form class="register">
-    	<p>Username: <input  type="string" name="username"></p>
-        <p>Email: <input type="email" name="email"></p>
-        <p>Password: <input type="password" name="password"></p>
-        <p><input type="submit" value="Register"></p>
-    </form>
+        <div class="panel-warning">
+            <div class="h3 panel-heading">Register as an I-NEEDA
+            user</div>
+            <div class="panel-body">
+
+                You will need to register on the I-NEEDA system in order to be able to access all of its features. Location information is used for sorting results.
+                <ul>
+                    <li>
+                        If you are intending to be a service provider please go to the 'MyProfile' and 'MyLocation' pages
+                        and enter your details.
+                    </li>
+                    <li> If you are just intending to use I-NEEDA for finding someone its only necessary to enter your
+                        location
+                        using the 'MyLocation' page. You can choose to enter or leave blank the remaining details on the
+                        MyProfile page.
+                    </li>
+                </ul>
+                Please register with a username, which can be anything you like,an email address and password. In future
+                you
+                will login using your email address and password. I-NEEDA only requires an email address to ensure that a unique
+                identity is created. No other use is made of your email address and it is not visible to other users.
+
+                The option of using Facebook, Twitter, LinkedIn to log in will be made available in a later release of
+                I-NEEDA.
+            </div>
+            <br>
+        </div>
+        <div class="panel">
+            <br>
+            <form class="register">
+                <p>Username: <input type="string" name="username"></p>
+
+                <p>Email: <input type="email" name="email"></p>
+
+                <p>Password: <input type="password" name="password"></p>
+
+                <p><input type="submit" value="Register"></p>
+            </form>
+            <br>
+        </div>
     </div>
 </template>
