@@ -14,6 +14,7 @@ Router.route('/home');
 Router.route('/editProfile');
 Router.route('/map');
 Router.route('/messages');
+Router.route('/feedback');
 Router.route('/post/:_id', {
     template: 'post',
     name: 'postpage',

@@ -1,27 +1,18 @@
 /**
- * Created by Phil on 01/09/2015.
+ * Created by Phil on 12/09/2015.
  */
-Template.post.helpers({
-    userName: function() {
-        return Meteor.user().username;
-    },
-    userId: function() {
-        return Meteor.userId();
-    }
-});
-
-Template.post.events({
+Template.feedback.events({
     'submit form': function(event) {
         console.log("Send button pressed");
+        var admin = Profiles.findOne({serviceName: "sysadmin"});
+        console.log(admin);
         var content = $('[name="content"]').val();
-        var recipientId = $('[name="recipientId"]').val();
-        var senderId = $('[name="fromId"]').val();
+        var recipientId = admin.createdBy;
+        var senderId =  Meteor.userId();
         var senderName = Profiles.findOne({
             createdBy: senderId
         });
-        var recepientName = Profiles.findOne({
-            createdBy: recipientId
-        });
+        var recepientName = admin.ProfileTitle;
 
         console.log("Sending to:" + recipientId + " from" + senderId);
         var d = new Date();
@@ -31,12 +22,11 @@ Template.post.events({
             sentToName: recepientName.ProfileTitle,
             sentFromId: senderId,
             sentFromName: senderName.ProfileTitle,
-            content: content,
+            content: "<Feedback> "+content,
             "hideIn": "no",
             "hideOut": "no",
             createdOn: n
         });
         Router.go('/home');
-    },
+        }
 });
-
