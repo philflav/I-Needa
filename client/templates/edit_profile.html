@@ -5,7 +5,14 @@
         {{#each myProfile}}
             <div class="panel panel-warning">
                 <div class="panel-heading">
-                    Use this page to edit your personal profile.
+                    Use
+                    this
+                    page
+                    to
+                    edit
+                    your
+                    personal
+                    profile.
                 </div>
 
                 <div class="panel-body">
@@ -23,6 +30,11 @@
                 <div class="panel-body">
                     <form class="">
                         <div class="row">
+                            <div class="col-md-2">
+                                {{#each avatar}}
+                            <img src="{{this.url store="avatars"}}" alt="" class="img-responsive circle-image" />
+                                {{/each}}
+                                </div>
                             <div class="col-md-4">
                                 <p>Profile Title*: <input type="text" class="form-control" name="ProfileTitle"
                                                           value={{ProfileTitle}}>
@@ -40,7 +52,12 @@
                             <div class="col-md-1 col-xs-3">
                                 Age: <input type="text" name="age" class="form-control" value={{age}}>
                             </div>
-                        </div>
+                             </div>
+                        Upload a profile image
+                                <span class="bt btn-default btn-file">
+                                        <input type="file" class="file fileInput"/>
+                                </span>
+
                         <br>
                         <!--<p>Gender: <input type="text" class="form-control" name="gender" value={{gender}}></p>-->
                         <div class="row">

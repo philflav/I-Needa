@@ -3,6 +3,25 @@ Profiles = new Mongo.Collection("profiles");
 Messages = new Mongo.Collection("messages");
 Services = new Mongo.Collection("services");
 
+Avatars = new FS.Collection('avatars', {
+    filter: {
+        maxSize: 1000000, //bytes
+        allow: {
+            contentTypes: ['image/*']
+        }
+    },
+    onInvalid: function (message) {
+        if (Meteor.isClient) {
+            alert(message);
+        } else {
+            console.log(message);
+        }
+        ;
+    },
+    stores: [new FS.Store.GridFS('avatars')]
+
+});
+
 //Routes
 
 Router.route('/', {

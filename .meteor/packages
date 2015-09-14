@@ -15,3 +15,5 @@ twbs:bootstrap
 hybrid:dialogs
 dburles:google-maps
 jamiter:pluralize
+cfs:standard-packages
+cfs:gridfs
