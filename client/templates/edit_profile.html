@@ -1,6 +1,7 @@
 <template name="editProfile">
-    {{>home}}
     <div class="container">
+        {{>home}}
+
 
         {{#each myProfile}}
             <div class="panel panel-warning">
@@ -20,7 +21,17 @@
                     Information you enter here will be visible to other users of I-NEEDA.<br>
 
                     Fields marked with a * are required. All other information is optional but completing it will be
-                    helpful in connecting with the right people.
+                    helpful in connecting with the right people.<br>
+
+                    Select from the list in the dropdown box the service you are offering. Then write a few words
+                    regarding your experience in providing this service and record the fee, if any, that you propose to
+                    charge. It's also helpful to provide a few words about yourself in the About Me box.
+
+                    You can also use this page to upload a 'head and shoulders' profile picture of yourself which will
+                    be visible to other users of the system.
+
+                    If you are simply proposing to use I-NEEDA to find someone to provide a service its only neccessary
+                    to <a href="/map">enter your location.</a>
                 </div>
             </div>
 
@@ -32,9 +43,9 @@
                         <div class="row">
                             <div class="col-md-2">
                                 {{#each avatar}}
-                            <img src="{{this.url store="avatars"}}" alt="" class="img-responsive circle-image" />
+                                    <img src="{{this.url store="avatars"}}" alt="" class="img-responsive circle-image"/>
                                 {{/each}}
-                                </div>
+                            </div>
                             <div class="col-md-4">
                                 <p>Profile Title*: <input type="text" class="form-control" name="ProfileTitle"
                                                           value={{ProfileTitle}}>
@@ -52,7 +63,7 @@
                             <div class="col-md-1 col-xs-3">
                                 Age: <input type="text" name="age" class="form-control" value={{age}}>
                             </div>
-                             </div>
+                        </div>
                         Upload a profile image
                                 <span class="bt btn-default btn-file">
                                         <input type="file" class="file fileInput"/>
