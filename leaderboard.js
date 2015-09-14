@@ -1,8 +1,6 @@
 Profiles = new Mongo.Collection("profiles");
-
 Messages = new Mongo.Collection("messages");
 Services = new Mongo.Collection("services");
-
 Avatars = new FS.Collection('avatars', {
     filter: {
         maxSize: 2000000, //bytes
@@ -16,10 +14,8 @@ Avatars = new FS.Collection('avatars', {
         } else {
             console.log(message);
         }
-        ;
     },
     stores: [new FS.Store.GridFS('avatars')]
-
 });
 
 //Routes
