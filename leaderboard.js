@@ -5,7 +5,7 @@ Services = new Mongo.Collection("services");
 
 Avatars = new FS.Collection('avatars', {
     filter: {
-        maxSize: 1000000, //bytes
+        maxSize: 2000000, //bytes
         allow: {
             contentTypes: ['image/*']
         }

@@ -4,29 +4,40 @@
     {{>home}}
     <div class="container ">
         <div class="panel panel-success">
-        <div class="panel-heading">
-            Profile Summaries for local {{pService}}</div>
+            <div class="panel-heading">
+                Profile
+                Summaries
+                for local {{pService}}</div>
 
-        <div class="panel-body">
-            <div class="well">The nearest {{service}} to your location is shown first.<br></div>
-            {{#each profiles}}
-                <a href="/profile/{{_id}}">{{ProfileTitle}}</a><br>
-
-                <div class="row">
-                    <div class="col-md-2">
-                        Gender: {{gender}}</div>
-                    <div class="col-md-1"></div>
-                    <div class=" col-md-1">
-                        Age: {{age}}</div>
-                    <div class="col-md-4">
-                        Location: {{location}}</div>
-                </div>
-                <div class="plain">
-                    Last logged in: {{lastLogIn}}<br>
-                </div>
-            {{/each}}
+            <div class="panel-body">
+                <div class="well">The nearest {{service}} to your location is shown first.<br></div>
+                {{#each profiles}}
+                    <div class="row">
+                        {{#each avatar}}
+                            <div class="col-md-1">
+                                <img src="{{this.url store="avatars"}}" alt=""
+                                     class="img-responsive small-circle-image"/>
+                            </div>
+                        {{/each}}
+                        <div class="h5 col-md-2">
+                            <a href="/profile/{{_id}}">{{ProfileTitle}}</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            Gender: {{gender}}</div>
+                        <div class="col-md-1"></div>
+                        <div class=" col-md-1">
+                            Age: {{age}}</div>
+                        <div class="col-md-4">
+                            Location: {{location}}</div>
+                    </div>
+                    <div class="plain">
+                        Last logged in: {{lastLogIn}}<br>
+                    </div>
+                {{/each}}
+            </div>
         </div>
-    </div>
     </div>
 
 </template>

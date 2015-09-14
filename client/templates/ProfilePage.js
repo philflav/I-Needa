@@ -7,6 +7,9 @@ Template.ProfilePage.helpers({
     },
     userId: function() {
         return Meteor.userId();
+    },
+    avatar: function (parentContext) {
+        return Avatars.find({"owner._id": this.createdBy});
     }
 });
 
