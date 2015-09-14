@@ -11,6 +11,6 @@ App.info({
     email: 'pflavin@gmail.com',
     website: 'http://flavin.no-ip.biz:3000'
 });
-App.accessRule('*.google.com/*');
-App.accessRule('*.googleapis.com/*');
-App.accessRule('*.gstatic.com/*');
+App.accessRule('https://*.googleapis.com/*');
+App.accessRule('https://*.google.com/*');
+App.accessRule('https://*.gstatic.com/*');
