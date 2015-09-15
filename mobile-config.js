@@ -6,7 +6,7 @@
 App.info({
     id: 'com.ineeda',
     name: 'I-Needa',
-    description: 'Find useful people locall',
+    description: 'Find useful people locally',
     author: 'Martello Software',
     email: 'pflavin@gmail.com',
     website: 'http://flavin.no-ip.biz:3000'

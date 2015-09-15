@@ -45,10 +45,10 @@ Router.route('/post/:_id', {
 });
 
 Router.route('/subscription');
-Router.route('/favourites');
-Router.route('/likesMe');
-Router.route('/lookedAt');
-Router.route('/lookedAtMe');
+Router.route('/likes');
+//Router.route('/likesMe');
+//Router.route('/lookedAt');
+//Router.route('/lookedAtMe');
 Router.route('/logout');
 Router.route('/results/:service', {
     template: 'profiles',
