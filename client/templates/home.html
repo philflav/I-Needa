@@ -1,20 +1,24 @@
+<head><link rel="shortcut icon" sizes="16x16 32x32" href="favicon.ico?v=2" type="image/x-icon"></head>
 <template name="home">
+    <head><link rel="shortcut icon" sizes="16x16 32x32" href="favicon.ico?v=2" type="image/x-icon"></head>
     <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
 
         <nav role="navigation">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+          <a class="navbar-brand" rel="home" href="#" title="Find usefull people locally">
+              <img style="max-width:50px; margin-top: -10px;"
+                   src="/resources/logo.jpg"></a>
   	{{#if currentUser}}
-    <div class="navbar-text navbar-left">Signed in as <a href="/editProfile" class="navbar-link">{{> user}}</a></div>
+    <div class="navbar-right pull-right">Signed in as <a href="/editProfile" class="navbar-link">{{> user}}</a></div>
     {{else}}
-    <h5>You are not logged in. Not everything will work</h5>
-    <p class="navbar-text navbar-lext">Sign in <a href="/login" class="navbar-link"></a></p>
+    <p class="navbar-right pull-right">Sign in <a href="/login" class="navbar-link"></a></p>
   	{{/if}}
     <br>
       </div>
@@ -42,6 +46,7 @@
 
 
     </header>
+    <br>
     <br>
     <br>
     <br>
