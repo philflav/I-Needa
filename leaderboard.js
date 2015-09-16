@@ -1,6 +1,47 @@
 Profiles = new Mongo.Collection("profiles");
+if (Meteor.isServer) {
+    // This code only runs on the server
+    Meteor.publish("profiles", function () {
+        //--TODO-- Geographic filter on Profiles published to the client --//
+        return Profiles.find();
+    });
+}
+
+if (Meteor.isClient) {
+    // This code only runs on the client
+    Meteor.subscribe("profiles");
+}
+
 Messages = new Mongo.Collection("messages");
+if (Meteor.isServer) {
+    // This code only runs on the server
+    // Ensures only message to or from the user are on the client device
+    Meteor.publish("messages", function () {
+        return Messages.find({
+            $or: [
+                { sentToId: this.userId },
+                { sentFromId: this.userId }
+            ]
+        });
+    });
+}
+
+if (Meteor.isClient) {
+    // This code only runs on the client
+    Meteor.subscribe("messages");
+}
 Services = new Mongo.Collection("services");
+if (Meteor.isServer) {
+    // This code only runs on the server
+    Meteor.publish("services", function () {
+        return Services.find();
+    });
+}
+
+if (Meteor.isClient) {
+    // This code only runs on the client
+    Meteor.subscribe("services");
+}
 Avatars = new FS.Collection('avatars', {
     filter: {
         maxSize: 2000000, //bytes
@@ -17,7 +58,17 @@ Avatars = new FS.Collection('avatars', {
     },
     stores: [new FS.Store.GridFS('avatars')]
 });
+if (Meteor.isServer) {
+    // This code only runs on the server
+    Meteor.publish("avatars", function () {
+        return Avatars.find();
+    });
+}
 
+if (Meteor.isClient) {
+    // This code only runs on the client
+    Meteor.subscribe("avatars");
+}
 //Routes
 
 Router.route('/', {
