@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ae35a18e-5b74-42b3-b10d-d1cacb1b6090" name="Default" comment="Android app icon &amp; launch screen&#10;">
+    <list default="true" id="ae35a18e-5b74-42b3-b10d-d1cacb1b6090" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile-config.js" afterPath="$PROJECT_DIR$/mobile-config.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -57,8 +57,8 @@
       <file leaf-file-name="mobile-config.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mobile-config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70290965">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.18046358">
+              <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -554,7 +554,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442481273104</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Android app icon &amp; launch screen&#10;">
+      <created>1442485297696</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1442485297696</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1003,8 +1009,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile-config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70290965">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.18046358">
+          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
           <folding />
         </state>
       </provider>

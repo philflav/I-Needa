@@ -13,17 +13,21 @@ App.info({
 });
 App.icons({
     'android_ldpi': '/public/resources/android-chrome-36x36.png',
-    'android_mhdpi':'/public/resources/android-chrome-48x48.png',
+    'android_mdpi':'/public/resources/android-chrome-48x48.png',
     'android_hdpi': '/public/resources/android-chrome-96x96.png',
     'android_xhdpi':'/public/resources/android-chrome-144x144.png'
     // ... more screen sizes and platforms ...
 });
 App.launchScreens({
-    'android_ldpi': '/public/resources/android-chrome-36x36.png',
-    'android_mhdpi':'/public/resources/android-chrome-48x48.png',
-    'android_hdpi': '/public/resources/android-chrome-96x96.png',
-    'android_xhdpi':'/public/resources/android-chrome-144x144.png'
+    'android_ldpi_landscape': '/public/resources/android-chrome-36x36.png',
+    'android_mdpi_landscape':'/public/resources/android-chrome-48x48.png',
+    'android_hdpi_landscape': '/public/resources/android-chrome-96x96.png',
+    'android_xhdpi_landscape':'/public/resources/android-chrome-144x144.png'
     // ... more screen sizes and platforms ...
+    'android_ldpi_portrait': '/public/resources/android-chrome-36x36.png',
+    'android_mdpi_portrait':'/public/resources/android-chrome-48x48.png',
+    'android_hdpi_portrait': '/public/resources/android-chrome-96x96.png',
+    'android_xhdpi_portrait':'/public/resources/android-chrome-144x144.png'
 });
 
 App.accessRule('https://*.googleapis.com/*');
