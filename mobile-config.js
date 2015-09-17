@@ -12,10 +12,10 @@ App.info({
     website: 'http://flavin.no-ip.biz:3000'
 });
 App.icons({
-    'android_ldpi': '/public/resources/android-chrome-36x36.png',
-    'android_mdpi':'/public/resources/android-chrome-48x48.png',
-    'android_hdpi': '/public/resources/android-chrome-96x96.png',
-    'android_xhdpi':'/public/resources/android-chrome-144x144.png'
+    'android_ldpi': 'public/resources/android-chrome-36x36.png',
+    'android_mdpi':'public/resources/android-chrome-48x48.png',
+    'android_hdpi': 'public/resources/android-chrome-96x96.png',
+    'android_xhdpi':'public/resources/android-chrome-144x144.png'
     // ... more screen sizes and platforms ...
 });
 /* --TODO-- Splash screens need to be 9-Patch images see https://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch --

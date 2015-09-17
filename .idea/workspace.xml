@@ -57,8 +57,8 @@
       <file leaf-file-name="mobile-config.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mobile-config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68">
-              <caret line="23" column="74" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.47304347">
+              <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -566,7 +566,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442485907347</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Splash screens removed - needs 9-patch&#10;">
+      <created>1442486578615</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1442486578615</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TodoView">
@@ -640,7 +646,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Geolocation and mapping now working correctly. Hurrah!&#10;&#10;New user profile uses curren location  as default." />
     <MESSAGE value="Search function updater to use $near to retrun results sorted in distance (from current location) order." />
     <MESSAGE value="Formating updates to map.html and implementation of location privacy." />
     <MESSAGE value="Most pages now formatted using Bootstrap elements but CSS is still the standard oob version. Also some minro functionality changes." />
@@ -665,7 +670,8 @@
     <MESSAGE value="Logo and favicon added" />
     <MESSAGE value="Android app icon&#10;" />
     <MESSAGE value="Android app icon &amp; launch screen&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Android app icon &amp; launch screen&#10;" />
+    <MESSAGE value="Splash screens removed - needs 9-patch&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Splash screens removed - needs 9-patch&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1015,8 +1021,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile-config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68">
-          <caret line="23" column="74" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.47304347">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
           <folding />
         </state>
       </provider>
