@@ -11,6 +11,11 @@ App.info({
     email: 'pflavin@gmail.com',
     website: 'http://flavin.no-ip.biz:3000'
 });
+App.icons({
+    'android': 'public/resources/android-chrome-96x96.png',
+    // ... more screen sizes and platforms ...
+});
+
 App.accessRule('https://*.googleapis.com/*');
 App.accessRule('https://*.google.com/*');
 App.accessRule('https://*.gstatic.com/*');
