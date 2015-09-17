@@ -11,6 +11,19 @@ if (Meteor.isClient) {
     // This code only runs on the client
     Meteor.subscribe("profiles");
 }
+Recommendations = new Mongo.Collection("recommendations");
+if (Meteor.isServer) {
+    // This code only runs on the server
+    Meteor.publish("recommendations", function () {
+
+        return Recommendations.find();
+    });
+}
+
+if (Meteor.isClient) {
+    // This code only runs on the client
+    Meteor.subscribe("recommendations");
+}
 
 Messages = new Mongo.Collection("messages");
 if (Meteor.isServer) {
@@ -80,6 +93,15 @@ Router.route('/home');
 Router.route('/editProfile');
 Router.route('/map');
 Router.route('/messages');
+Router.route('/recommend/:_id', {
+    template: 'recommend',
+    data: function () {
+        var recipientProfile = this.params._id;
+        console.log("This is a recommendation page for ", recipientProfile);
+          console.log(Profiles.findOne({createdBy: recipientProfile}));
+         return Profiles.findOne({createdBy: recipientProfile});
+    }
+});
 Router.route('/feedback');
 Router.route('/post/:_id', {
     template: 'post',

@@ -28,12 +28,14 @@ if (Meteor.isClient) {
             }
         }
 
+
     });
     Template.map.helpers({
         location: function () {
             return Session.get('location');
         }
     });
+
 
     Template.map.onCreated(function () {
 

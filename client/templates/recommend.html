@@ -1,0 +1,59 @@
+<template name="recommend">
+    {{>home}}
+
+    <div class="container">
+        {{#if Reviewed}}
+            <div class="panel-danger">
+                <div class="panel-heading">
+                    NOT ALLOWED !
+                </div>
+                <div class="panel-body">
+                        {{ProfileTitle}} has already been reviewed by you.You can't do this again.
+                </div>
+            </div>
+        {{ else }}
+            <div class="panel-primary">
+                <div class="h5 panel-heading">
+                    Recommendation
+                    for {{ProfileTitle}} a {{serviceName}} from {{location}}
+
+                </div>
+                <div class=" panel-body">
+                    <input type="hidden" name="profileId" value={{createdBy}}>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="panel-primary">
+                                <div class="panel-heading"><h3 class="panel-title">Your comments</h3>
+                                </div>
+                                <div class="panel-body">
+                                <textarea rows="3" class="form-control" name="content"
+                                          defaultValue='your comments about {{ProfileTitle}} as a {{serviceName}}'></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="panel-primary">
+                                <div class="panel-heading"><h3 class="panel-title">Last used</h3>
+                                </div>
+                                <div class="panel-body"> <textarea rows="3" class="form-control"
+                                                                   name="lastUsed"
+                                                                   defaultValue='When did you last use {{ProfileTitle}} as a {{serviceName}}'></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button class="save btn btn-success">Click to save</button>
+                </div>
+            </div>
+        {{/if}}
+    </div>
+
+
+</template>
