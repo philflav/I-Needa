@@ -18,6 +18,7 @@ App.icons({
     'android_xhdpi':'/public/resources/android-chrome-144x144.png'
     // ... more screen sizes and platforms ...
 });
+/* --TODO-- Splash screens need to be 9-Patch images see https://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch --
 App.launchScreens({
     'android_ldpi_landscape': '/public/resources/android-chrome-36x36.png',
     'android_mdpi_landscape':'/public/resources/android-chrome-48x48.png',
@@ -29,6 +30,7 @@ App.launchScreens({
     'android_hdpi_portrait': '/public/resources/android-chrome-96x96.png',
     'android_xhdpi_portrait':'/public/resources/android-chrome-144x144.png'
 });
+*/
 
 App.accessRule('https://*.googleapis.com/*');
 App.accessRule('https://*.google.com/*');
