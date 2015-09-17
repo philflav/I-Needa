@@ -12,7 +12,17 @@ App.info({
     website: 'http://flavin.no-ip.biz:3000'
 });
 App.icons({
-    'android': 'public/resources/android-chrome-96x96.png',
+    'android_ldpi': '/public/resources/android-chrome-36x36.png',
+    'android_mhdpi':'/public/resources/android-chrome-48x48.png',
+    'android_hdpi': '/public/resources/android-chrome-96x96.png',
+    'android_xhdpi':'/public/resources/android-chrome-144x144.png'
+    // ... more screen sizes and platforms ...
+});
+App.launchScreens({
+    'android_ldpi': '/public/resources/android-chrome-36x36.png',
+    'android_mhdpi':'/public/resources/android-chrome-48x48.png',
+    'android_hdpi': '/public/resources/android-chrome-96x96.png',
+    'android_xhdpi':'/public/resources/android-chrome-144x144.png'
     // ... more screen sizes and platforms ...
 });
 
