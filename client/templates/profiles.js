@@ -18,5 +18,8 @@ Template.profiles.helpers({
     },
     avatar: function (parentContext) {
         return Avatars.find({"owner._id": this.createdBy});
+    },
+    recommendedBy: function () {
+        return Recommendations.find({profileId: this.createdBy});
     }
 })

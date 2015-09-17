@@ -35,6 +35,14 @@
                     <div class="plain">
                         Last logged in: {{lastLogIn}}<br>
                     </div>
+                    <div class="panel-primary">
+                        <div class="panel-heading">Recommendations for {{ProfileTitle}}</div>
+                        <div class="panel-body">
+                        {{#each recommendedBy}}
+                           On {{createdOn}}, an anonymous user wrote, {{content}} <br>
+                        {{/each}}
+                        </div>
+                    </div>
                 {{/each}}
             </div>
         </div>

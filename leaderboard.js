@@ -187,7 +187,9 @@ if (Meteor.isClient) {
 
     });
 
-
+    Template.registerHelper('ProfileName', function(profileId){
+        return Profiles.findOne({createdBy: profileId}).ProfileTitle
+    });
     //Events
 
 
