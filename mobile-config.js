@@ -9,7 +9,8 @@ App.info({
     description: 'Find useful people locally',
     author: 'Martello Software',
     email: 'pflavin@gmail.com',
-    website: 'http://flavin.no-ip.biz:3000'
+    website: 'http://flavin.no-ip.biz:3000',
+    version: '1.0.0'
 });
 App.icons({
     'android_ldpi': 'public/resources/android-chrome-36x36.png',
@@ -35,3 +36,8 @@ App.launchScreens({
 App.accessRule('https://*.googleapis.com/*');
 App.accessRule('https://*.google.com/*');
 App.accessRule('https://*.gstatic.com/*');
+App.accessRule('http://*.googleapis.com/*');
+App.accessRule('http://*.google.com/*');
+App.accessRule('http://*.gstatic.com/*');
+App.accessRule('http://flavin.no-ip.biz:3000/*');
+App.accessRule('http://flavin.no-ip.biz:3001/*');
