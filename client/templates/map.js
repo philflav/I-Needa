@@ -20,6 +20,7 @@ if (Meteor.isClient) {
                 }
                 console.log("Here: " + mapLat + " " + mapLng);
                 GoogleMaps.load();
+                GoogleMaps.initialize();
                 return {
                     center: new google.maps.LatLng(mapLat, mapLng),
                     zoom: 8

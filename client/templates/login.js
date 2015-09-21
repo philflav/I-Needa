@@ -28,5 +28,13 @@ Template.login.events({
                 Router.go("/search");
             }
         });
+    },
+    'click .facebook-login': function(event) {
+        Meteor.loginWithFacebook({}, function(err){
+            if (err) {
+                throw new Meteor.Error("Facebook login failed");
+            }
+        });
+        Router.go("/search");
     }
 });

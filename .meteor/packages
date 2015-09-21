@@ -17,3 +17,5 @@ jamiter:pluralize
 cfs:standard-packages
 cfs:gridfs
 mdg:geolocation
+service-configuration
+accounts-facebook

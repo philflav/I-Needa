@@ -50,6 +50,22 @@ if (Meteor.isServer) {
         return Services.find();
     });
 }
+if (Meteor.isClient) {
+    UI.registerHelper("getImageUser", function (userId) {
+        var user = Meteor.users.findOne(userId);
+        if (user.services) {
+            if (user.services.facebook)
+                return user.services.facebook.picture;
+            if (user.services.twitter)
+                return user.services.twitter.profile_image_url;
+            if (user.services.google)
+                return user.services.google.picture;
+        }
+        else {
+            return "images/withOutPhoto.png";
+        }
+    });
+}
 
 if (Meteor.isClient) {
     // This code only runs on the client
